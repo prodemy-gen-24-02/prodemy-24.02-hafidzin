@@ -60,8 +60,98 @@ body{
 ul{
     list-style-type: none;
 }
+
 li{
     margin-bottom: 1rem;
     font-weight: bold;
     font-size: 1.5rem;
 }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 10rem;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.hover-gray {
+    background-color: black;
+}
+
+.hover-gray:hover {
+    background-color: darkolivegreen;
+}
+
+.hover-black {
+    background-color: black;
+    color: white;
+}
+
+.hover-black:hover{
+    background-color: wheat;
+    color: black;
+}
+
+.hover-normal {
+    background-color: transparent;
+    color: black;
+}
+
+.hover-normal:hover {
+    background-color: wheat;
+    color: black;
+}
+
+.hover-subs{
+    display: flex;
+    position: relative;
+}
+
+.hover-subs button {
+    background-color: black;
+    position: absolute; 
+    right: 0.3rem; 
+    top: 0.3rem; 
+    width: 7rem; 
+    height: 2.8rem; 
+    color: white; 
+    border-radius: 4rem; 
+    font-weight: bold; 
+    font-size: 1rem;
+}
+
+.hover-subs button:hover {
+    background-color: wheat;
+    color: black
+}
+
+.hover-basic{
+    background-color: #F3EDE3ff;
+    color: black;
+}
+
+.hover-basic:hover{
+    background-color: olive;
+    color: white;
+}
+
+

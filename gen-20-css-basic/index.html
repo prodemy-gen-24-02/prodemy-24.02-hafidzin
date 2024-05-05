@@ -12,21 +12,28 @@
             <img src="assets/logo.png" alt="coffe logo" style="width: 7.5rem; ">
             <div style="justify-content: space-between; gap: 2rem; display: flex; font-size: 1.2rem; font-weight: bold;">
                 <a>Blog</a>
-                <a>Shop</a>
-                <div>
-                    
+                <div class="dropdown">
+                    <a>Shop v</a>
+                    <div class="dropdown-content">
+                        <a href="">1</a>
+                        <a href="">2</a>
+                        <a href="">3</a>
+                    </div>
                 </div>
                 <a>City coffe guide</a>
                 <a>About</a>
             </div>
             <div style="display: flex; gap: 1rem;">
-                <button style="background-color: #F3EDE3ff; border-radius: 4rem; border-color: bisque; width: 7.5rem; height: 2.5rem; font-weight: bold; font-size: 1rem;">
+                <button class="hover-basic"
+                style="border-radius: 4rem; border-color: bisque; width: 7.5rem; height: 2.5rem; font-weight: bold; font-size: 1rem;">
                     Contact us
                 </button>
-                <button style="background-color: #F3EDE3ff; border-color: bisque; border-radius: 4rem; width: 2.6rem;">
+                <button class="hover-basic"
+                style="border-color: bisque; border-radius: 4rem; width: 2.6rem;">
                     <img src="assets/user.svg" alt="" style="width: 1.6rem; margin-top: 0.2rem;">
                 </button>
-                <button style="background-color: black; border-radius: 4rem; width: 2.6rem;">
+                <button class="hover-gray" 
+                style="border-radius: 4rem; width: 2.6rem;">
                     <img src="assets/bag.svg" alt="" style="width: 1.4rem; margin-top: 0.2rem;">
                 </button>
             </div>
@@ -38,10 +45,12 @@
         <p style="font-size: 2rem; width: 70%; margin-bottom: 3rem;">
             Sometimes we find ourselvesin a tricky situation: urgently need coffe but have no brewing tools in hand.
         </p>
-        <button style="background-color: black; color: white; width: 12rem; height: 4rem; border-radius: 4rem; font-size: 1.5rem; font-weight: bold; margin-right: 0.5rem;">
-            Read blog
+        <button class="hover-black" 
+        style="width: 12rem; height: 4rem; border-radius: 4rem; font-size: 1.5rem; font-weight: bold; margin-right: 0.5rem;">
+                Read blog
         </button>
-        <button style="background-color: transparent; color: black; width: 16rem; height: 4rem; border-radius: 4rem; font-size: 1.5rem; font-weight: bold;">
+        <button class="hover-normal" 
+        style="width: 16rem; height: 4rem; border-radius: 4rem; font-size: 1.5rem; font-weight: bold;">
             Make purchases
         </button>
     </div>
@@ -50,7 +59,7 @@
             Catalogue
 
             <span style="font-size: 1.5rem;">
-                <a href="" style="">Shop all ></a>
+                <a href="">Shop all ></a>
             </span>
         </h2>
         <div style="display: flex; justify-content: space-between; gap: 1rem;">
@@ -94,7 +103,7 @@
             <h2 style="display: flex; justify-content: space-between; font-size: 3rem; align-items: baseline;">
                 Equipment
                 <span style="font-size: 1.5rem;">
-                    <a href="" style="">See all ></a>
+                    <a href="">See all ></a>
                 </span>
             </h2>
             <div style="display: flex; justify-content: space-between; gap: 2rem;">
@@ -125,10 +134,10 @@
                 <p style="color: white; font-size: 1.5rem;">
                     Sign up for our email newsletter
                 </p>
-                <form action="" style="display: flex; position: relative;">
+                <form class="hover-subs" action="">
                     <input type="text" placeholder="Email" 
                     style="height: 3rem; width: 32rem; border-radius: 4rem; padding-left: 2rem; font-size: 1.2rem; ">
-                    <button style="background-color: black; position: absolute; right: 0.3rem; top: 0.3rem; width: 7rem; height: 2.8rem; color: white; border-radius: 4rem; font-weight: bold; font-size: 1rem;">
+                    <button>
                         Subscribe</button>
                 </form>
             </div>
@@ -136,9 +145,9 @@
         <div style="background-color: wheat; padding-top: 4rem; padding-bottom: 4rem; display: flex; justify-content: space-between;">
             <div style="margin: 0rem 10rem auto 10rem; ">
                 <img src="assets/logo.png" alt="logo" style="width: 10rem;">
-                <p style="">Coffe is so much more than a beverage <br>-it's a community</p>
+                <p style="font-size: 1.2rem; margin-top: auto;">Coffe is so much more than a beverage <br>-it's a community</p>
             </div>
-            <div style="">
+            <div>
                 <ul>
                     <li>Blog</li>
                     <li>Shop</li>
@@ -157,7 +166,7 @@
             </div>
         </div>
         <div style="background-color: wheat; padding-top: 1rem; display: flex; align-items: center; gap: 2rem;">
-            <div style="margin: auto 10rem auto 10rem; display: flex; align-items: center; gap: 2rem;">
+            <div style="font-weight: bold; margin: auto 10rem auto 10rem; display: flex; align-items: center; gap: 2rem;">
                 <p>
                     &copy; 2021 Coffe 
                 </p>
