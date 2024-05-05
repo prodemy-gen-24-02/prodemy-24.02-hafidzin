@@ -1,0 +1,67 @@
+body{
+    margin: auto;
+    background-color: #FAF7F2ff;
+    font-family: "Mastro Sans";
+}
+.card{
+    width: 24rem;
+}
+.card-big{
+    width: 32rem;
+    margin: 0rem;
+    background-color: white;
+    position: relative;
+    padding-bottom: 6rem;
+}
+
+.card-big button{
+    border: none;
+    outline: 0;
+    padding: 0.5rem;
+    color: black;
+    background-color: #F2EBE0ff;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.card button {
+    border: none;
+    outline: 0;
+    padding: 0.5rem;
+    color: black;
+    background-color: #F2EBE0ff;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    height: 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    
+  }
+
+.card button:hover{
+    background-color: wheat;
+}
+.container{
+    padding: 2px ;
+}
+
+.container h3{
+    font-size: 1.5rem;
+    margin-bottom: 0rem;
+}
+
+.container p{
+    font-size: 1.1rem;
+}
+
+ul{
+    list-style-type: none;
+}
+li{
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
