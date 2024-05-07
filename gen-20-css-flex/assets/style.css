@@ -1,0 +1,185 @@
+body{
+    margin: auto;
+    background-color: #FAF7F2ff;
+    font-family: "Mastro Sans";
+}
+
+.card{
+    width: 24rem;
+    position: relative;
+}
+
+.card img{
+    object-fit: cover;
+    width: 100%;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.card img:hover{
+    object-fit: cover;
+    scale: 110%;
+}
+.card-big{
+    width: 32rem;
+    margin: 0rem;
+    background-color: white;
+    position: relative;
+    padding-bottom: 6rem;
+}
+
+.card-big button{
+    border: none;
+    outline: 0;
+    padding: 0.5rem;
+    color: black;
+    background-color: #F2EBE0ff;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.card button {
+    border: none;
+    outline: 0;
+    padding: 0.5rem;
+    color: black;
+    background-color: #F2EBE0ff;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    height: 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    
+  }
+
+.card button:hover{
+    background-color: wheat;
+}
+.container{
+    padding: 2px ;
+}
+
+.container h3{
+    font-size: 1.5rem;
+    margin-bottom: 0rem;
+}
+
+.container p{
+    font-size: 1.1rem;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 10rem;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.hover-gray {
+    background-color: black;
+}
+
+.hover-gray:hover {
+    background-color: darkolivegreen;
+}
+
+.hover-black {
+    background-color: black;
+    color: white;
+}
+
+.hover-black:hover{
+    background-color: wheat;
+    color: black;
+}
+
+.hover-normal {
+    background-color: transparent;
+    color: black;
+}
+
+.hover-normal:hover {
+    background-color: wheat;
+    color: black;
+}
+
+.hover-subs{
+    display: flex;
+    position: relative;
+}
+
+.hover-subs button {
+    background-color: black;
+    position: absolute; 
+    right: 0.3rem; 
+    top: 0.3rem; 
+    width: 7rem; 
+    height: 2.8rem; 
+    color: white; 
+    border-radius: 4rem; 
+    font-weight: bold; 
+    font-size: 1rem;
+}
+
+.hover-subs button:hover {
+    background-color: wheat;
+    color: black
+}
+
+.hover-basic{
+    background-color: #F3EDE3ff;
+    color: black;
+}
+
+.hover-basic:hover{
+    background-color: olive;
+    color: white;
+}
+
+input[type="text"] {
+    height: 3rem;
+    width: 32rem;
+    border-radius: 4rem;
+    padding-left: 2rem;
+    font-size: 1.2rem; 
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
+  }
+
+input[type="text"]:focus {
+    width: 42rem;
+}
+
+
