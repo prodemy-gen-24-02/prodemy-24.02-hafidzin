@@ -4,26 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style.css">
-    <title>Coffe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function showNavbar() {
+          var x = document.getElementById("navbar");
+          if (x.className === "navbar-hidden") {
+            x.className += " active";
+          } else {
+            x.className = "navbar-hidden";
+          }
+        };
+
+        function dropdown() {
+          var x = document.getElementById("dropdown");
+          if (x.className === "dropdown") {
+            x.className += " show";
+          } else {
+            x.className = "dropdown";
+          }
+        }
+    </script>
+
+<title>Coffe</title>
 </head>
 <body>
-    <header style="margin: 0rem 10rem 6rem 10rem;">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
+    <header>
+        <div class="navbar" >
             <img src="assets/logo.png" alt="coffe logo" style="width: 7.5rem; ">
-            <div style="justify-content: space-between; gap: 2rem; display: flex; font-size: 1.2rem; font-weight: bold;">
+            <!-- <div style="justify-content: space-between; gap: 2rem; display: flex; font-size: 1.2rem; font-weight: bold;"> -->
+                <div class="navbar-hidden" id="navbar">
                 <a>Blog</a>
-                <div class="dropdown">
+                <div class="dropdown" id="dropdown" onclick="dropdown()">
                     <a>Shop v</a>
                     <div class="dropdown-content">
                         <a href="">1</a>
                         <a href="">2</a>
                         <a href="">3</a>
                     </div>
+                
                 </div>
                 <a>City coffe guide</a>
                 <a>About</a>
-            </div>
-            <div style="display: flex; gap: 1rem;">
+            <!-- </div> -->
+            <!-- <div style="display: flex; gap: 1rem;">
                 <button class="hover-basic"
                 style="border-radius: 4rem; border-color: bisque; width: 7.5rem; height: 2.5rem; font-weight: bold; font-size: 1rem;">
                     Contact us
@@ -36,33 +59,36 @@
                 style="border-radius: 4rem; width: 2.6rem;">
                     <img src="assets/bag.svg" alt="" style="width: 1.4rem; margin-top: 0.2rem;">
                 </button>
-            </div>
-
+            </div> -->
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="showNavbar()">
+            <i class="fa fa-bars"></i>
+        </a>
         </div>
     </header>
-    <div style="margin: 7rem 10rem 7rem 10rem;">
-        <h1 style="font-size: 4rem; margin-bottom: 2rem;">Community of Coffe Experts</h1>
-        <p style="font-size: 2rem; width: 70%; margin-bottom: 3rem;">
+    <div class="margin">
+        <h1>Community of Coffee Experts</h1>
+        <p class="main-p">
             Sometimes we find ourselvesin a tricky situation: urgently need coffe but have no brewing tools in hand.
         </p>
-        <button class="hover-black" 
-        style="width: 12rem; height: 4rem; border-radius: 4rem; font-size: 1.5rem; font-weight: bold; margin-right: 0.5rem;">
-                Read blog
-        </button>
-        <button class="hover-normal" 
-        style="width: 16rem; height: 4rem; border-radius: 4rem; font-size: 1.5rem; font-weight: bold;">
-            Make purchases
-        </button>
-    </div>
-    <div name="Catalogue" style="margin: 6rem 10rem 6rem 10rem;">
-        <h2 style="display: flex; justify-content: space-between; font-size: 3rem; align-items: baseline;">
-            Catalogue
+        <div class="flex">
 
-            <span style="font-size: 1.5rem;">
+            <button class="hover-black">
+                Read blog
+            </button>
+            <button class="hover-normal">
+                Make purchases
+            </button>
+        </div>
+    </div>
+    <div name="Catalogue" class="margin">
+        <h2>
+            Catalogue
+            <span>
                 <a href="">Shop all ></a>
             </span>
         </h2>
-        <div style="display: flex; justify-content: space-between; gap: 1rem;">
+        <div class="grid-2">
             <div class="card">
                 <img src="assets/bag.jpg"  alt="">
                 <div class="container">
@@ -99,17 +125,17 @@
     </div>
     
     <div style="background-color: #F3EDE3ff; padding-top: 0.5rem;">
-        <div style="margin: 6rem 10rem 6rem 10rem;">
-            <h2 style="display: flex; justify-content: space-between; font-size: 3rem; align-items: baseline;">
+        <div class="margin">
+            <h2>
                 Equipment
-                <span style="font-size: 1.5rem;">
+                <span>
                     <a href="">See all ></a>
                 </span>
             </h2>
-            <div style="display: flex; justify-content: space-between; gap: 2rem;">
+            <div class="grid">
                 <div class="card-big">
-                    <img src="assets/coffe-machine.webp"  alt="" style="width: 100%;">
-                    <div class="container" style="text-align: center; position: absolute; margin: auto; left: 0; right: 0; bottom: 2rem;">
+                    <img src="assets/coffe-machine.webp"  alt="">
+                    <div class="container-big">
                         <h3>VA388 BLACK EAGLE-T3</h3>
                         <p>Traditional coffe machine with T3 technology</p>
                     </div>
@@ -119,36 +145,35 @@
                     <div class="container" style="text-align: center; position: absolute; margin: auto; left: 0; right: 0; bottom: 2rem;">
                         <h3>VA388 BLACK EAGLE-T3</h3>
                         <p>Traditional coffe machine with T3 technology</p></div>
-                </div>
+                </div> 
                 <div class="card-big">
                     <img src="assets/coffe-machine.webp"  alt="" style="width: 100%;">
                     <div class="container" style="text-align: center; position: absolute; margin: auto; left: 0; right: 0; bottom: 2rem;">
                         <h3>VA388 BLACK EAGLE-T3</h3>
                         <p>Traditional coffe machine with T3 technology</p></div>
                 </div>
-    </div>
-    </div>
-    <footer style="margin: auto;">
-        <div style="background-color: olive; padding-top: 1rem; padding-bottom: 1rem; ">
-            <div style="margin: 0rem 10rem auto 10rem; display: flex; align-items: center; justify-content: space-between;">
-                <p style="color: white; font-size: 1.5rem;">
+            </div>
+        </div>
+    <footer>
+        <div class="footer-olive">
+            <div class="footer-div">
+                <p>
                     Sign up for our email newsletter
                 </p>
                 <form class="hover-subs" action="">
-                    <input type="text" placeholder="Email" 
-                    >
+                    <input type="text" placeholder="Email">
                     <button>
                         Subscribe
                     </button>
                 </form>
             </div>
         </div>
-        <div style="background-color: wheat; padding-top: 4rem; padding-bottom: 4rem; display: flex; justify-content: space-around;">
-            <div style="margin: 0rem 10rem auto 10rem; ">
+        <div class="footer-info">
+            <div class="margin-2">
                 <img src="assets/logo.png" alt="logo" style="width: 10rem;">
-                <p style="font-size: 1.2rem; margin-top: auto;">Coffe is so much more than a beverage <br>-it's a community</p>
+                <p>Coffe is so much more than a beverage <br>-it's a community</p>
             </div>
-            <div>
+            <div class="footer-flex">
                 <ul>
                     <li>Blog</li>
                     <li>Shop</li>
@@ -156,8 +181,8 @@
                     <li>About</li>
                     <li>Contact us</li>
                 </ul>
-            </div>
-            <div style="margin-right: 10rem;">
+            <!-- </div>
+            <div> -->
                 <ul>
                     <li>Espresso</li>
                     <li>Filter</li>
@@ -166,8 +191,8 @@
                 </ul>
             </div>
         </div>
-        <div style="background-color: wheat; padding-top: 1rem; display: flex; align-items: center; gap: 2rem;">
-            <div style="font-weight: bold; margin: auto 10rem auto 10rem; display: flex; align-items: center; gap: 2rem;">
+        <div class="footer-copyright">
+            <!-- <div style="font-weight: bold; margin: auto 10rem auto 10rem; display: flex; align-items: center; gap: 2rem;"> -->
                 <p>
                     &copy; 2021 Coffe 
                 </p>
@@ -175,8 +200,9 @@
                 <a >User Agreement</a>
                 <a >Public Offer</a>
                 <a >RSS</a>
-            </div>
-            <p style="text-align: right; margin: auto 10rem auto auto; display: flex;">Designed by Flatstudio</p>
+            <!-- </div> -->
+            <!-- <p style="text-align: right; margin: auto 10rem auto auto; display: flex;">Designed by Flatstudio</p> -->
+            <p>Designed by Flatstudio</p>
         </div>
     </footer>
     </body>
