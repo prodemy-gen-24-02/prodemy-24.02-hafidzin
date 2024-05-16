@@ -582,6 +582,10 @@ video {
   z-index: -10;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -687,21 +691,28 @@ video {
   height: 100vh;
 }
 
-.max-h-96 {
-  max-height: 24rem;
+.h-32 {
+  height: 8rem;
 }
 
-.max-h-full {
-  max-height: 100%;
+.h-2 {
+  height: 0.5rem;
 }
 
-.max-h-screen {
-  max-height: 100vh;
+.h-24 {
+  height: 6rem;
 }
 
-.max-h-fit {
-  max-height: -moz-fit-content;
-  max-height: fit-content;
+.h-3 {
+  height: 0.75rem;
+}
+
+.h-2\/6 {
+  height: 33.333333%;
+}
+
+.h-14 {
+  height: 3.5rem;
 }
 
 .w-24 {
@@ -728,12 +739,8 @@ video {
   width: 100%;
 }
 
-.w-80 {
-  width: 20rem;
-}
-
-.min-w-full {
-  min-width: 100%;
+.w-10 {
+  width: 2.5rem;
 }
 
 .max-w-28 {
@@ -746,6 +753,10 @@ video {
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -790,6 +801,18 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-12 {
+  gap: 3rem;
+}
+
+.gap-11 {
+  gap: 2.75rem;
 }
 
 .rounded {
@@ -1043,6 +1066,10 @@ img{
 
 img:hover {
   scale: 102%;
+}
+
+.hover\:cursor-pointer:hover {
+  cursor: pointer;
 }
 
 .hover\:bg-gray-200:hover {

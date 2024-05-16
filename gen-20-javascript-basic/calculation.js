@@ -22,10 +22,12 @@ console.log(`nilai dari luas segitiga adalah: ${luasSegitiga()}`);
 
 //persegi panjang 
 function luasPersegiPanjang(){
-    let p = 4
+    let p = 3
     let l = 2
     if(p == l){return `nilai dari luas persegi adalah: ${p*l}`}
-    if(p != l){return `nilai dari luas persegi panjang adalah: ${p*l}`}
+        else {
+        return `nilai dari luas persegi panjang adalah: ${p*l}`
+    }
 }
 console.log(luasPersegiPanjang());
 

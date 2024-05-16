@@ -57,25 +57,24 @@
       <h1 class="font-bold sm:text-4xl mb-2 mt-2 text-3xl">Brazil Sitio Penha 250g</h1>
       <h2 class="font-thin ">Flavore Profile: toffee & milk chocolate, red apple, orange-zest</h2>
       <h2 class="mt-4 mb-3 text-3xl font-bold font-sans">&euro;13</h2>
-      <form action="" class="flex gap-2 flex-col">
+      <form class="flex gap-2 flex-col">
         <div class="flex flex-row items-center gap-2 mb-2">
           <input class="block w-4 h-4 bg-slate-400" type="checkbox" id="type" name="type">
           <label for="type" class="">Ground grains</label>
-          <button class="w-5">
+          <button class="w-5" type="button">
             <img src="assets/info-fill.svg" alt="">
           </button>
         </div>
         <div class="flex flex-row items-center gap-3">
-          <div class="flex h-full bg-color-primary border-yellow-400 border-2 w-36 rounded-full items-center justify-between">
+          <input value="1" id="qty" class="flex h-14 bg-color-primary border-yellow-400 border-2 w-36 rounded-full items-center justify-between">
 
-            <button class="ml-1 size-12">
-              <img src="assets/minus-circle-fill.svg" alt="" class="size-full">
+            <button class="ml-1 size-12" id="minus" onclick="counter('minus')" type="button">
+              <img src="assets/minus-circle-fill.svg" class="size-full">
             </button>
-            <p class="text-3xl">1</p>
-            <button class="mr-1 size-12 ">
-              <img src="assets/plus-circle-fill.svg" alt="" class="size-full hover:bg">
+            <button class="mr-1 size-12" id="plus" onclick="counter('plus')" type="button">
+              <img src="assets/plus-circle-fill.svg" class="size-full hover:bg">
             </button>
-          </div>
+          </input>
           <div class="flex flex-row">
             <button class="bg-black text-white rounded-full w-36 h-12 font-bold text-lg hover:bg-green-600 hover:text-white">
               Add to cart
@@ -200,25 +199,25 @@
       </div>
   </div>
 </div>
-<div class="mt-8 ">
-  <h3 class="text-3xl font-bold">Brewing Guide</h3>
-  <div class="flex gap-2">
-    <div class="border-2 relative">
-      <img onclick="changeImage('assets/bags/bag.jpg')" src="assets/pngegg (1).png" alt="">
-      <h5 class="text-center">Chemex</h5>
+<div class="mt-2 ">
+  <!-- <h3 class="text-3xl font-bold">Brewing Guide</h3> -->
+  <div class="grid grid-cols-3 gap-2">
+    <div class="border-2 ">
+      <img onclick="changeImage('assets/bags/bag.jpg')" src="assets/bags/bag.jpg" alt="" class="hover:cursor-pointer">
+      <h5 class="text-center">bag 1</h5>
     </div>
-    <div class="border-2 relative">
-      <img onclick="changeImage('assets/bags/bag2.webp')" src="assets/pngegg (1).png" alt="">
-      <h5 class="text-center">Chemex</h5>
+    <div class="border-2 ">
+      <img onclick="changeImage('assets/bags/bag2.webp')" src="assets/bags/bag2.webp" alt="" class="hover:cursor-pointer">
+      <h5 class="text-center">bag 2</h5>
     </div>
-    <div class="border-2 relative">
-      <img onclick="changeImage('assets/bags/bag3.webp')" src="assets/pngegg (1).png" alt="">
-      <h5 class="text-center">Chemex</h5>
+    <div class="border-2 ">
+      <img onclick="changeImage('assets/bags/bag3.webp')" src="assets/bags/bag3.webp" alt="" class="hover:cursor-pointer">
+      <h5 class="text-center">bag 3</h5>
     </div>
-    <div class="border-2 relative">
+    <!-- <div class="border-2 relative">
       <img src="assets/pngegg (1).png" alt="">
       <h5 class="text-center">Chemex</h5>
-    </div>
+    </div> -->
 </div>
     </section>
   </article>
