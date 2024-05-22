@@ -9,6 +9,7 @@ export default function Criteria() {
   const [sort, setSort] = useState(false);
   const [roast, setRoast] = useState(false);
   const [taste, setTaste] = useState(false);
+  
   return (
     <div className='flex justify-between items-center'>
         <div className='flex gap-4 my-4 font-semibold'>

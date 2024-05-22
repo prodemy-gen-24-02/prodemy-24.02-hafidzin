@@ -13,7 +13,7 @@ export default function CardShop({type}) {
                     <p className='text-base line-clamp-2'>{p.desc}</p>
                 </div>
                 <p className='absolute top-1 left-1 bg-color-secondary text-sm p-1 font-medium'>{p.category}</p>
-                {!p.condition ? null : <p className='absolute top-2 right-2 bg-color-accent text-xs p-2  text-white '>{p.condition}</p>}
+                {p.condition && <p className='absolute top-2 right-2 bg-color-accent text-xs p-2  text-white '>{p.condition}</p>}
                 <div className='flex items-center justify-between py-2 font-bold text-2xl mx-2 '>
                     €{p.price}
                     <button className='bg-color-primary py-2 rounded-full w-28 font-semibold border-[1px] border-color-dark mt-2 hover:bg-color-dark hover:text-white text-sm'>Add to cart</button>

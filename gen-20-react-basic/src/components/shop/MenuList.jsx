@@ -8,7 +8,8 @@ export default function MenuList() {
         <div className='font-semibold'>
                 Origin
             <form action="" className='grid mt-4 font-normal text-gray-500 gap-1'>
-                <label htmlFor=""><input type="checkbox"  className='accent-color-primary appearance-none border-2 w-4 h-4 border-color-dark checked:w-4 checked:h-4 checked:appearance-auto checked:border-2 checked:border-color-dark'/> Brazil</label> 
+                <label htmlFor=""><input type="checkbox"  className='accent-color-primary appearance-none border-2 w-4 h-4 border-color-dark 
+                checked:w-4 checked:h-4 checked:appearance-auto checked:border-2 checked:border-color-dark'/> Brazil</label> 
                 <label htmlFor=""><input type="checkbox" /> Colombia</label> 
                 <label htmlFor=""><input type="checkbox" /> Costa Rica</label> 
             </form>

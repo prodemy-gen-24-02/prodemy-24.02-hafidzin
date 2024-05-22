@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function Header() {
+  
   return (
     <div>
         <header className=" border-b-gray-300 border-b-[1px] font-medium">
