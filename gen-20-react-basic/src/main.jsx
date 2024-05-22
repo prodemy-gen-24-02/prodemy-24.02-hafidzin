@@ -12,7 +12,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Navbar />
     <Header />
-    <Main />
     <Catalogue /> 
     <Equipment />
     <Footer />

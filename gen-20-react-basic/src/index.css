@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*cek md reference */
+    
+}
+
+body{
+    background-color: #f2ebe0;
+    font-family: "Encode Sans", sans-serif;
+}
+img{
+    transition: .3s ease all;
+    -webkit-transition: .3s ease all;
+    -moz-transition: .3s ease all;
+    -ms-transition: .3s ease all;
+    -o-transition: .3s ease all;
+}
+
+img:hover {
+    scale: 102%;
+}

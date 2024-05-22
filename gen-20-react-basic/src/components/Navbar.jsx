@@ -1,10 +1,10 @@
 import {HandbagSimple, UserCircle} from "@phosphor-icons/react"
-import MenuList from "./MenuList"
-import MenuListDrop from "./MenuListDrop"
+import MenuList from "./NavbarList"
+import MenuListDrop from "./NavbarListDrop"
 
 export default function Navbar(){
     return(
-        <nav>
+        <nav className="bg-color-primary">
         <div className="lg:mx-32 mx-4 flex justify-between items-center">
 
       <div className="flex gap-4">
