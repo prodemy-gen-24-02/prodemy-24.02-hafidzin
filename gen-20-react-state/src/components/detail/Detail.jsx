@@ -22,8 +22,11 @@ export default function Detail() {
     const arrayId = products().map((a) => a.id == getQueryParams());
     // const arrayId = products().map((a) => a.id);
     const filter = arrayId.indexOf(true);
+    // console.log(filter);
     return products()[filter];
   }
+
+  // console.log(productById());
 
   const [inputs, setInputs] = useState({});
 
@@ -32,10 +35,12 @@ export default function Detail() {
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
   };
+
   const submitClick = (event) => {
     console.log(inputs);
   };
-  console.log();
+
+  // console.log();
   const [count, isCount] = useState(1);
   // console.log(count);
 
