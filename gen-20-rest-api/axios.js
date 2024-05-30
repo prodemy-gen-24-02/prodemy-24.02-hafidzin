@@ -41,7 +41,9 @@ const updateRecipesById = async (id, recipesUpdate) => {
         const response = await axios.put(
             `https://dummyjson.com/posts/${id}`,
             recipesUpdate
+        
         )
+        console.log(response)
     } catch (error) {
         console.log(error);
     }
