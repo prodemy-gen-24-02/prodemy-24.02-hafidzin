@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 export default function Loading() {
   return (
     <>
-    <div class="loader"></div>
+      <div class="flex justify-center items-center min-h-screen">
+        <div className="loader"></div>
+      </div>
     </>
-  )
+  );
 }

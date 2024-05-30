@@ -9,43 +9,13 @@ import { useState } from "react";
 import Service from "./Service";
 import CardShop from "../shop/CardShop";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import useSWR from "swr";
-// import { getProductsResponse } from "../data/libs";
-import { products } from "../data/libs";
 
-export default function Detail({}) {
-  // const [products, setProduct] = useState([]);
-  // const fetchProducts = async () => {
-  //   try {
-  //     const response = await axios.get("http://localhost:3000/products");
-  //     setProduct(response.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchProducts();
-  // }, []);
-
-  // console.log(products);
-
-  // const fetchProduct = (url) =>
-  //   axios.get(url).then((response) => response.data);
-
-  // const products =  useSWR("http://localhost:3000/products", fetchProduct);
-  // console.log(products.data);
-
-  // const products = getProductsResponse();
-
+export default function Detail({ products }) {
   const { id } = useParams();
   // const data = products.find((p) => p.id === parseInt(id));
   function productById() {
     const arrayId = products.map((a) => a.id == id);
-    // const arrayId = products().map((a) => a.id);
     const filter = arrayId.indexOf(true);
-    // console.log(filter);
     return products[filter];
   }
 
@@ -230,6 +200,7 @@ export default function Detail({}) {
         Related Products
       </h2>
       <div className="mx-32 grid grid-cols-3 gap-2 pb-32">
+        {/* kasih loading */}
         <CardShop type={products?.slice(2, 5)} />
       </div>
     </>
