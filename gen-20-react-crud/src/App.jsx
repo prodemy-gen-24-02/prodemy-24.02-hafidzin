@@ -6,7 +6,7 @@ import ShopSection from "./pages/shop/ShopSection";
 import ProductDetail from "./pages/detail/ProductDetail";
 import Dashboard from "./pages/admin/Dashboard";
 import InputForm from "./pages/admin/sections/InputForm";
-import EditForm from "./components/admin/form/EditForm";
+import EditFormPage from "./pages/admin/sections/EditFormPage";
 
 export default function App() {
   return (
@@ -19,7 +19,7 @@ export default function App() {
       <Route path="/productdetail/:id" element={<ProductDetail />} />
       <Route path="/admin/home" element={<Dashboard />} />
       <Route path="/admin/form" element={<InputForm />} />
-      <Route path="/admin/form" element={<EditForm />} />
+      <Route path="/admin/form/edit/:id" element={<EditFormPage />} />
     </Routes>
   );
 }

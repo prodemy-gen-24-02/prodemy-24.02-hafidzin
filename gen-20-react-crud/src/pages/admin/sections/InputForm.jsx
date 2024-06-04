@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string, number } from "yup";
+import axios from "axios";
+import { mutate } from "swr";
 
 export default function InputForm() {
   const categories = ["Filter roast", "Espresso roast", "Medium roast"];
-
   const schema = object({
     name: string().required(" harus diisi"),
     desc: string().required(" harus diisi"),
     category: string().oneOf(categories).required(" harus diisi"),
     price: number().typeError("Harga harus angka").required(" harus diisi"),
-    condition: string().default(null),
+    // condition: string().default(null),
   });
 
   const {
@@ -22,13 +23,76 @@ export default function InputForm() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // const payload = {};
+  const [src, setSrc] = useState([]);
+  const [progressBar, setProgressBar] = useState(0);
+
+  const handleImage = (e) => {
+    const formData = new FormData();
+    const arraySrc = Array.from(e.target.files);
+    // console.log(arraySrc);
+    let src = [];
+    for (const img of arraySrc) {
+      // console.log(img);
+      formData.append("file", img);
+      formData.append("upload_preset", "ml_default");
+      axios
+        .post(
+          "https://api.cloudinary.com/v1_1/degizzbun/image/upload",
+          formData,
+          {
+            onUploadProgress: (e) => {
+              setProgressBar(Math.round((100 * e.loaded) / e.total));
+            },
+          }
+        )
+        .then((res) => {
+          src.push(res.data.secure_url);
+          mutate();
+        });
+    }
+    setSrc(src);
+    // const payloadUpdate = {
+    //   name: data.name,
+    //   desc: data.desc,
+    //   category: data.category,
+    //   price: data.price,
+    //   src: [response.data.secure_url],
+    // };
+    // console.log(src);
   };
 
+  useEffect(() => {
+    setProgressBar(0);
+  }, [src]);
+  console.log(src);
+
+  const onSubmit = (data) => {
+    let condition;
+    {
+      data.condition == "New" ? (condition = data.condition) : null;
+    }
+    const payloadUpdate = {
+      name: data.name,
+      desc: data.desc,
+      category: data.category,
+      price: data.price,
+      src: src,
+      condition,
+    };
+    axios
+      .post(`http://localhost:3000/products`, payloadUpdate)
+      .then(({ data }) => {
+        console.log(`Processing`, data);
+      })
+      .catch((err) => {
+        console.log(`Error : `, err);
+      })
+      .finally(() => {
+        console.log("Success");
+      });
+  };
   return (
-    <div className="px-64 py-32">
+    <div className="lg:px-64 py-32 px-24">
       <h1 className="text-3xl font-bold py-6">Form Input</h1>
       <div className="">
         <form onSubmit={handleSubmit(onSubmit)} className="grid gap-2">
@@ -61,7 +125,7 @@ export default function InputForm() {
               Description
               <span className="text-red-500">{errors.desc?.message}</span>
             </label>
-            <input
+            <textarea
               className="bg-transparent p-3"
               placeholder="description"
               {...register("desc")}
@@ -117,14 +181,36 @@ export default function InputForm() {
             <label className="px-3 flex gap-2 pb-3">
               <input
                 className="bg-transparent p-3"
-                placeholder="Asal Kota"
                 {...register("condition")}
-                id="condtion"
+                id="condition"
                 type="checkbox"
                 value="New"
               />
               New
             </label>
+          </div>
+          <div className="flex flex-col bg-color-primary shadow-md rounded-lg">
+            <label className="p-3 font-semibold">Image files</label>
+            <label className="px-3 flex gap-2 pb-3">
+              <input
+                className="bg-transparent p-3"
+                {...register("src")}
+                id="src"
+                type="file"
+                multiple="multiple"
+                onChange={handleImage}
+              />
+            </label>
+            <div className="flex justify-center bg-white vh-100">
+              <div
+                className="w-full bg-white mt-5 p-4"
+                aria-valuenow={progressBar}
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                {progressBar} {progressBar == 100 && "Upload done"}
+              </div>
+            </div>
           </div>
           <button
             className="bg-green-800 text-white rounded-lg p-3 font-bold "
