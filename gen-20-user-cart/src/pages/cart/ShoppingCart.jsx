@@ -8,9 +8,9 @@ export default function ShoppingCart() {
   // const { cartData } = useContext(CartContext);
   const user = useSelector((state) => state.auth.user);
   const { dataCart } = useSelector((state) => state.cart);
-  const filteredCart = dataCart.filter((data) => data.userId == user.id);
+  const filteredCart = dataCart?.filter((data) => data.userId == user.id);
 
-  // console.log(dataCheckout);
+  // console.log(dataCart);
   return (
     <div>
       <Navbar />

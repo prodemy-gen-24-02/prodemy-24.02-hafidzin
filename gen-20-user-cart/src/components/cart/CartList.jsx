@@ -1,8 +1,6 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import { MinusCircle, PlusCircle, Trash } from "@phosphor-icons/react";
-import { checkoutBooking } from "../../store/reducers/checkoutSlice";
+import { useDispatch } from "react-redux";
 import { fetchCart, minusQty, plusQty } from "../../store/reducers/cartSlice";
 import CartTable from "./CartTable";
 import Swal from "sweetalert2";
@@ -10,23 +8,31 @@ import Service from "../detail/Service";
 
 export default function CartList({ dataCart }) {
   const dispatch = useDispatch();
-  const deleteButton = (condition) => {
-    const newData = data.filter((data) => data != condition);
-    dispatch(checkoutBooking(newData));
-  };
 
   const methods = useForm();
-  const onSubmit = (data) => {
-    console.log(dataCart, data);
-  };
 
-  console.log(methods.formState.errors.shipping);
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   const subTotal = () => {
     let sum = 0;
     dataCart.map((d) => (sum += d.qty * d.price));
     return sum;
   };
+
+  const [tax, setTax] = useState((subTotal() * 5) / 100);
+  const [totalPayment, setTotalPayment] = useState(tax + subTotal());
+
+  useEffect(() => {
+    setTax((subTotal() * 5) / 100);
+    methods.setValue("total", totalPayment);
+  }, [dataCart]);
+
+  useEffect(() => {
+    setTotalPayment(tax + subTotal());
+    methods.setValue("tax", tax);
+  }, [dataCart]);
 
   const onClickMinusQty = (id) => {
     dispatch(minusQty(id));
@@ -84,7 +90,9 @@ export default function CartList({ dataCart }) {
                   <div className="text-lg font-bold">
                     <h3 className="my-2">
                       Shipping:{" "}
-                      {methods.formState.errors.shipping && "Choose shipping"}
+                      {methods.formState.errors.shipping && (
+                        <span className="text-red-600">Choose shipping</span>
+                      )}
                     </h3>
 
                     <div className="grid grid-row gap-1 bg-white rounded-lg p-3">
@@ -112,23 +120,28 @@ export default function CartList({ dataCart }) {
                     Sales tax 5% <span>&euro;{(subTotal() * 5) / 100}</span>
                     <input
                       type="hidden"
-                      value={(subTotal() * 5) / 100}
+                      value={tax}
+                      onChange={(e) => setTax(parseFloat(e.target.value))}
                       {...methods.register("tax")}
                     />
                   </h4>
                   <p className="text-xl font-bold flex justify-between">
                     Total Payment :{" "}
-                    {parseInt(methods.watch()?.tax) &&
+                    {methods.watch()?.shipping &&
                     !methods.formState.errors.shipping ? (
                       <span>
-                        &euro;{parseInt(methods.watch()?.tax) + subTotal()}
+                        {/* &euro;{parseInt(methods.watch()?.tax) + subTotal()} */}
+                        {totalPayment}
                       </span>
                     ) : (
                       <span>...</span>
                     )}
                     <input
                       type="number"
-                      value={parseInt(methods.watch()?.tax) + subTotal()}
+                      value={totalPayment}
+                      onChange={(e) =>
+                        setTotalPayment(parseFloat(e.target.value))
+                      }
                       {...methods.register("total")}
                     />
                   </p>

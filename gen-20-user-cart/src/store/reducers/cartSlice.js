@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useDispatch } from "react-redux";
 
 const initialState = {
     dataCart: [],
@@ -13,13 +12,6 @@ export const fetchCart = createAsyncThunk(
     async () => {
         const response = await axios.get(
             "http://localhost:3000/cart")
-            // .then((resp) => {
-    //         console.log(resp.data)
-    //         return resp.data;
-    //     }).catch((error) => {
-    //         console.error(error);
-    // })
-
     return response.data
 }
 )
@@ -29,10 +21,7 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            const newState = JSON.parse(JSON.stringify(state.dataCart))
-            console.log("new", newState)
-            console.log("action", action.payload)
-            const sameProduct = newState.find((p) => 
+            const sameProduct = state.dataCart.find((p) => 
                 p.product_id === action.payload.product_id
              && p.userId === action.payload.userId)
              console.log(sameProduct);
@@ -45,21 +34,18 @@ const cartSlice = createSlice({
             
         },
         deleteFromCart: (state, action) => {
-          const newState = JSON.parse(JSON.stringify(state.dataCart))
-          const sameProduct = newState.find((p) => 
+          const sameProduct = state.dataCart.find((p) => 
             p.id === action.payload)
           axios.delete("http://localhost:3000/cart/" + sameProduct.id)
         },
         minusQty: (state, action) => {
-          const newState = JSON.parse(JSON.stringify(state.dataCart))
-          const sameProduct = newState.find((p) => 
+          const sameProduct = state.dataCart.find((p) => 
             p.id === action.payload)
           const qty = { qty: parseInt(sameProduct.qty) - 1};
           axios.put("http://localhost:3000/cart/" + sameProduct.id, {...sameProduct, ...qty})
         },
         plusQty: (state, action) => {
-          const newState = JSON.parse(JSON.stringify(state.dataCart))
-          const sameProduct = newState.find((p) => 
+          const sameProduct = state.dataCart.find((p) => 
             p.id === action.payload)
           const qty = { qty: parseInt(sameProduct.qty) + 1};
           axios.put("http://localhost:3000/cart/" + sameProduct.id, {...sameProduct, ...qty})

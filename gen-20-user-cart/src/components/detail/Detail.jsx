@@ -205,7 +205,7 @@ export default function Detail({ products }) {
             </button>
             <div className="pt-1">
               <div className="grid grid-cols-3 gap-1">
-                {data?.src.map((img) => {
+                {data?.src.map((img, index) => {
                   return (
                     <div>
                       <img

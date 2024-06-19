@@ -88,21 +88,12 @@
   ],
   "cart": [
     {
-      "price": "12",
-      "name": "Colombia Sitio Penha 250g",
-      "product_id": "2",
-      "img": "../src/assets/bags/bag2.webp",
-      "userId": "2",
-      "qty": 4,
-      "id": 1
-    },
-    {
       "price": "13",
       "name": "Colombia Sitio Penha 250g",
       "product_id": "3",
       "img": "../src/assets/bags/bag3.webp",
       "userId": "2",
-      "qty": 3,
+      "qty": 7,
       "id": 3
     },
     {
@@ -156,8 +147,17 @@
       "product_id": "1",
       "img": "../src/assets/bags/bag.jpg",
       "userId": "2",
-      "qty": 2,
+      "qty": 8,
       "id": 9
+    },
+    {
+      "price": "12",
+      "name": "Colombia Sitio Penha 250g",
+      "product_id": "2",
+      "img": "../src/assets/bags/bag2.webp",
+      "userId": "2",
+      "qty": 1,
+      "id": 10
     }
   ]
 }
