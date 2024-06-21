@@ -12,7 +12,7 @@ export default function CartList({ dataCart }) {
   const methods = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log("submit", data);
   };
 
   const subTotal = () => {
@@ -22,47 +22,54 @@ export default function CartList({ dataCart }) {
   };
 
   const [tax, setTax] = useState((subTotal() * 5) / 100);
+  // const [tax, setTax] = useState(0);
   const [totalPayment, setTotalPayment] = useState(tax + subTotal());
+  // const [totalPayment, setTotalPayment] = useState(0);
 
   useEffect(() => {
-    setTax((subTotal() * 5) / 100);
-    methods.setValue("total", totalPayment);
+    const newTax = (subTotal() * 5) / 100;
+    setTax(newTax);
+    setTimeout(() => methods.setValue("tax", tax), 300);
+    // setTimeout(() => methods.setValue("total", totalPayment), 300);
   }, [dataCart]);
 
   useEffect(() => {
-    setTotalPayment(tax + subTotal());
-    methods.setValue("tax", tax);
+    const newTotal = tax + subTotal();
+    setTotalPayment(newTotal);
+    setTimeout(() => methods.setValue("total", totalPayment), 300);
   }, [dataCart]);
 
-  const onClickMinusQty = (id) => {
-    dispatch(minusQty(id));
-    dispatch(fetchCart());
-  };
-  const onClickPlusQty = (id) => {
-    dispatch(plusQty(id));
-    dispatch(fetchCart());
-  };
-  const onClickDelete = (id) => {
-    Swal.fire({
-      title: "Hapus produk?",
-      text: "Produk akan terhapus dari keranjang!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Hapus!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire({
-          title: "Deleted!",
-          text: "Produk dihapus dari keranjang.",
-          icon: "success",
-        });
-        dispatch(deleteFromCart(id));
-        dispatch(fetchCart());
-      }
-    });
-  };
+  // console.log(methods.getValues());
+
+  // const onClickMinusQty = (id) => {
+  //   dispatch(minusQty(id));
+  //   setTimeout(() => dispatch(fetchCart()), 1000);
+  // };
+  // const onClickPlusQty = (id) => {
+  //   dispatch(plusQty(id));
+  //   setTimeout(() => dispatch(fetchCart()), 1000);
+  // };
+  // const onClickDelete = (id) => {
+  //   Swal.fire({
+  //     title: "Hapus produk?",
+  //     text: "Produk akan terhapus dari keranjang!",
+  //     icon: "warning",
+  //     showCancelButton: true,
+  //     confirmButtonColor: "#3085d6",
+  //     cancelButtonColor: "#d33",
+  //     confirmButtonText: "Hapus!",
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       Swal.fire({
+  //         title: "Deleted!",
+  //         text: "Produk dihapus dari keranjang.",
+  //         icon: "success",
+  //       });
+  //       dispatch(deleteFromCart(id));
+  //       setTimeout(() => dispatch(fetchCart()), 1000);
+  //     }
+  //   });
+  // };
   return (
     <>
       <div className="mx-32 mt-16 gap-4 mb-32">

@@ -11,17 +11,17 @@ import {
 import Swal from "sweetalert2";
 
 export default function CartTable({ cartData, index }) {
-  const { register, handleSubmit } = useFormContext();
+  const { register, setValue, getValues } = useFormContext();
   // console.log(cartData);
   const dispatch = useDispatch();
 
   const onClickMinusQty = (id) => {
     dispatch(minusQty(id));
-    dispatch(fetchCart());
+    setTimeout(() => dispatch(fetchCart()), 300);
   };
   const onClickPlusQty = (id) => {
     dispatch(plusQty(id));
-    dispatch(fetchCart());
+    setTimeout(() => dispatch(fetchCart()), 300);
   };
   const onClickDelete = (id) => {
     Swal.fire({
@@ -40,7 +40,7 @@ export default function CartTable({ cartData, index }) {
           icon: "success",
         });
         dispatch(deleteFromCart(id));
-        dispatch(fetchCart());
+        setTimeout(() => dispatch(fetchCart()), 300);
       }
     });
   };
@@ -74,7 +74,10 @@ export default function CartTable({ cartData, index }) {
               <button
                 className="absolute top-1 size-12 left-0"
                 id="minus"
-                onClick={() => onClickMinusQty(cartData.id)}
+                onClick={() => (
+                  onClickMinusQty(cartData.id, index),
+                  setTimeout(setValue(`qty${index}`, cartData.qty), 200)
+                )}
                 type="button"
               >
                 <MinusCircle className="size-full" weight="fill" />
@@ -84,7 +87,10 @@ export default function CartTable({ cartData, index }) {
             <button
               className="absolute top-1 right-0 size-12"
               id="plus"
-              onClick={() => onClickPlusQty(cartData.id)}
+              onClick={() => (
+                onClickPlusQty(cartData.id, index),
+                setTimeout(setValue(`qty${index}`, cartData.qty), 200)
+              )}
               type="button"
             >
               <PlusCircle className="size-full" weight="fill" />
