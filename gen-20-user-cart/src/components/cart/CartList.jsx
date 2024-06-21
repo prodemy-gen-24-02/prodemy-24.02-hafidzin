@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { fetchCart, minusQty, plusQty } from "../../store/reducers/cartSlice";
 import CartTable from "./CartTable";
-import Swal from "sweetalert2";
 import Service from "../detail/Service";
 
 export default function CartList({ dataCart }) {
@@ -15,61 +13,17 @@ export default function CartList({ dataCart }) {
     console.log("submit", data);
   };
 
-  const subTotal = () => {
-    let sum = 0;
-    dataCart.map((d) => (sum += d.qty * d.price));
-    return sum;
-  };
+  const subTotal = dataCart
+    .map((item) => item.price * item.qty)
+    .reduce((prevValue, currValue) => prevValue + currValue, 0);
 
-  const [tax, setTax] = useState((subTotal() * 5) / 100);
-  // const [tax, setTax] = useState(0);
-  const [totalPayment, setTotalPayment] = useState(tax + subTotal());
-  // const [totalPayment, setTotalPayment] = useState(0);
+  const totalPayment = subTotal + (subTotal * 5) / 100;
 
   useEffect(() => {
-    const newTax = (subTotal() * 5) / 100;
-    setTax(newTax);
-    setTimeout(() => methods.setValue("tax", tax), 300);
-    // setTimeout(() => methods.setValue("total", totalPayment), 300);
-  }, [dataCart]);
+    methods.setValue("total", parseFloat(totalPayment));
+  }, [totalPayment]);
+  console.log(methods.getValues());
 
-  useEffect(() => {
-    const newTotal = tax + subTotal();
-    setTotalPayment(newTotal);
-    setTimeout(() => methods.setValue("total", totalPayment), 300);
-  }, [dataCart]);
-
-  // console.log(methods.getValues());
-
-  // const onClickMinusQty = (id) => {
-  //   dispatch(minusQty(id));
-  //   setTimeout(() => dispatch(fetchCart()), 1000);
-  // };
-  // const onClickPlusQty = (id) => {
-  //   dispatch(plusQty(id));
-  //   setTimeout(() => dispatch(fetchCart()), 1000);
-  // };
-  // const onClickDelete = (id) => {
-  //   Swal.fire({
-  //     title: "Hapus produk?",
-  //     text: "Produk akan terhapus dari keranjang!",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#3085d6",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: "Hapus!",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       Swal.fire({
-  //         title: "Deleted!",
-  //         text: "Produk dihapus dari keranjang.",
-  //         icon: "success",
-  //       });
-  //       dispatch(deleteFromCart(id));
-  //       setTimeout(() => dispatch(fetchCart()), 1000);
-  //     }
-  //   });
-  // };
   return (
     <>
       <div className="mx-32 mt-16 gap-4 mb-32">
@@ -88,7 +42,7 @@ export default function CartList({ dataCart }) {
               <div className="bg-color-secondary">
                 <div className="grid mx-4 my-3 gap-5">
                   <h2 className="text-xl font-bold flex justify-between">
-                    Subtotal: <span> &euro;{subTotal()}</span>
+                    Subtotal: <span> &euro;{subTotal}</span>
                   </h2>
                   <div>
                     <h3 className="text-lg font-bold">Coupon code</h3>
@@ -101,7 +55,6 @@ export default function CartList({ dataCart }) {
                         <span className="text-red-600">Choose shipping</span>
                       )}
                     </h3>
-
                     <div className="grid grid-row gap-1 bg-white rounded-lg p-3">
                       <label className="flex gap-3">
                         <input
@@ -124,13 +77,13 @@ export default function CartList({ dataCart }) {
                     </div>
                   </div>
                   <h4 className="text-lg font-bold flex justify-between">
-                    Sales tax 5% <span>&euro;{(subTotal() * 5) / 100}</span>
-                    <input
+                    Sales tax 5% <span>&euro;{(subTotal * 5) / 100}</span>
+                    {/* <input
                       type="hidden"
                       value={tax}
                       onChange={(e) => setTax(parseFloat(e.target.value))}
                       {...methods.register("tax")}
-                    />
+                    /> */}
                   </h4>
                   <p className="text-xl font-bold flex justify-between">
                     Total Payment :{" "}
@@ -145,10 +98,10 @@ export default function CartList({ dataCart }) {
                     )}
                     <input
                       type="number"
-                      value={totalPayment}
-                      onChange={(e) =>
-                        setTotalPayment(parseFloat(e.target.value))
-                      }
+                      value={methods.getValues().total}
+                      // onChange={(e) =>
+                      //   methods.setValue("total", parseFloat(totalPayment))
+                      // }
                       {...methods.register("total")}
                     />
                   </p>
